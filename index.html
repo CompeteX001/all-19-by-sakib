@@ -243,10 +243,81 @@
             text-align: center;
         }
         
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .header p {
+                font-size: 16px;
+            }
+            
+            .main-divider {
+                font-size: 24px;
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+                padding: 12px;
+            }
+            
+            .chapter-title {
+                font-size: 20px;
+            }
+            
+            .flow-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+            
+            .number {
+                margin-bottom: 10px;
+            }
+            
+            .arrow {
+                margin: 5px 0;
+            }
+            
+            .indent-1 { margin-left: 10px; }
+            .indent-2 { margin-left: 20px; }
+            .indent-3 { margin-left: 30px; }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .print-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+            
+            .fact-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .fact-icon {
+                margin-bottom: 10px;
+            }
+        }
+        
         @media print {
             body { background: white; padding: 0; }
             .container { box-shadow: none; }
             .section { page-break-inside: avoid; }
+            .print-btn { display: none; }
         }
         
         .print-btn {
