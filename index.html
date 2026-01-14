@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History & Geography - Visual Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 20px;
+            opacity: 0.95;
+        }
+        
+        .main-divider {
+            text-align: center;
+            margin: 50px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .blue-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .green-section { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .orange-section { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .purple-section { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .red-section { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .teal-section { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        .pink-section { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+        .yellow-section { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        
+        .chapter-header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 6px solid #667eea;
+        }
+        
+        .chapter-title {
+            font-size: 26px;
+            color: #330867;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .flowchart-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid #f093fb;
+        }
+        
+        .flow-item {
+            margin: 10px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            align-items: center;
+        }
+        
+        .arrow {
+            color: #f5576c;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+        
+        .number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .definition-box {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .def-term {
+            font-weight: bold;
+            color: #330867;
+            font-size: 18px;
+        }
+        
+        .def-meaning {
+            color: #4a4a4a;
+            margin-top: 5px;
+        }
+        
+        .fact-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .fact-icon {
+            background: #f5576c;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 3px dashed #d63031;
+        }
+        
+        .quick-point {
+            background: white;
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 4px solid #00b894;
+        }
+        
+        .timeline-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 5px solid #6c5ce7;
+        }
+        
+        .indent-1 { margin-left: 20px; }
+        .indent-2 { margin-left: 40px; }
+        .indent-3 { margin-left: 60px; }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .column-box {
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .ninja-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 3px solid #c92a2a;
+        }
+        
+        .ninja-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; }
+            .section { page-break-inside: avoid; }
+        }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+        
+        .print-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 HISTORY & GEOGRAPHY 📚</h1>
+            <p>Class 10 Social Science | CBSE Board 2025 | Complete Visual Revision</p>
+        </div>
+
+        <div class="main-divider">📖 PART I: HISTORY</div>
+
+        <!-- NATIONALISM IN EUROPE -->
+        <div class="chapter-header">
+            <div class="chapter-title">🇪🇺 A. THE RISE OF NATIONALISM IN EUROPE</div>
+            <div style="color: #6c5ce7; margin-top: 5px;">Story + Ideologies = Complete Understanding</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title blue-section">📊 CONCEPT FLOWCHART: THE STORY</div>
+            
+            <div class="flowchart-box">
+                <h3 style="color: #d63031; margin-bottom: 15px;">🎨 1789-1815: BIRTH OF NATIONALISM</h3>
+                
+                <div class="flow-item">
+                    <div class="number">1</div>
+                    <div>1789: French Revolution → First major event starting European nationalism</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Napoleon rose to power → Introduced Civil Code of 1804 (Napoleonic Code)</div>
+                </div>
+                
+                <div class="flow-item indent-2">
+                    <div>Civil Code = Uniform laws, abolished privileges, secured property rights</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Initially welcomed → Later ousted by those who invited him</div>
+                </div>
+            </div>
+            
+            <div class="flowchart-box" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);">
+                <h3 style="color: #6c5ce7; margin-bottom: 15px;">👑 1815: NEW CONSERVATISM ERA</h3>
+                
+                <div class="flow-item">
+                    <div class="number">2</div>
+                    <div>Napoleon defeated (1815) → Conservative regimes took control</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Prussia, Russia, Austria, Britain → Signed Treaty of Vienna (1815)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Goal: Restore old monarchies, suppress liberal ideas</div>
+                </div>
+            </div>
+            
+            <div class="flowchart-box" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <h3 style="color: #e17055; margin-bottom: 15px;">🔥 1830 ONWARDS: AGE OF REVOLUTIONS</h3>
+                
+                <div class="flow-item">
+                    <div class="number">3</div>
+                    <div>Bourbon monarchy (restored by conservatives) → Overthrown in France</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Belgium gained independence from Netherlands</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Greece War of Independence (against Ottoman Empire)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>1848: King removed in France again</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Revolt of Liberals in Germany (demanded reforms)</div>
+                </div>
+            </div>
+            
+            <div class="flowchart-box" style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);">
+                <h3 style="color: #11998e; margin-bottom: 15px;">🇩🇪🇮🇹 UNIFICATION OF NATIONS</h3>
+                
+                <div class="flow-item">
+                    <div class="number">4</div>
+                    <div><strong>Germany Unification:</strong> Otto von Bismarck (Iron Chancellor) unified German states</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="number">5</div>
+                    <div><strong>Italy Unification:</strong> Three heroes → Mazzini (thinker), Garibaldi (warrior), Cavour (diplomat)</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="number">6</div>
+                    <div><strong>Britain:</strong> Bloodless revolution (gradual reforms, no violence)</div>
+                </div>
+            </div>
+            
+            <div class="flowchart-box" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                <h3 style="color: #d63031; margin-bottom: 15px;">⚔️ NATIONALISM → IMPERIALISM → WWI</h3>
+                
+                <div class="flow-item">
+                    <div class="number">7</div>
+                    <div>Nationalism became extreme → Desire to dominate other nations</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Led to Imperialism (colonies, expansion)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Balkan region became explosive zone (ethnic conflicts)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Eventually triggered First World War</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title green-section">💡 KEY IDEOLOGIES & THEMES</div>
+            
+            <div class="timeline-box">
+                <div class="timeline-item">
+                    <strong style="color: #6c5ce7;">👥 European Society:</strong> Aristocrats (old ruling class) vs New Middle Class (educated merchants, professionals)
+                </div>
+                
+                <div class="timeline-item">
+                    <strong style="color: #6c5ce7;">🗽 Liberalism:</strong> Ideology of New Middle Class → Believed in freedom, individual rights, constitutional government
+                </div>
+                
+                <div class="timeline-item">
+                    <strong style="color: #6c5ce7;">⚔️ Conservatives vs Revolutionaries:</strong> Conservatives wanted old power intact | Revolutionaries (like Mazzini) wanted change
+                </div>
+                
+                <div class="timeline-item">
+                    <strong style="color: #6c5ce7;">🎭 Romanticism:</strong> Strengthening nationalism through emotions, traditions, folk tales (not just science/reason)
+                </div>
+                
+                <div class="timeline-item">
+                    <strong style="color: #6c5ce7;">🖼️ Visualizing Nation:</strong> Allegories used → Germania (Germany), Marianne (France) to unify people
+                </div>
+            </div>
+        </div>
+
+        <!-- NATIONALISM IN INDIA -->
+        <div class="chapter-header" style="margin-top: 40px;">
+            <div class="chapter-title">🇮🇳 B. NATIONALISM IN INDIA</div>
+            <div style="color: #6c5ce7; margin-top: 5px;">Pattern: Participants + Agenda + Limitations</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title blue-section">📊 CONCEPT FLOWCHART: INDIAN FREEDOM STRUGGLE</div>
+            
+            <div class="flowchart-box">
+                <h3 style="color: #d63031; margin-bottom: 15px;">🚀 BEGINNING OF MOVEMENT</h3>
+                
+                <div class="flow-item">
+                    <div class="number">1</div>
+                    <div>Anti-Colonial Movement grew → People fed up with British rule</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="number">2</div>
+                    <div>WWI Impact on India: Forced recruitment, inflation, increased taxes, diseases spread</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="number">3</div>
+                    <div>1915: Mahatma Gandhi arrived → Introduced Satyagraha (non-violent resistance)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>United people in Champaran (Bihar), Kheda (Gujarat), Ahmedabad (textile mills)</div>
+                </div>
+            </div>
+            
+            <div class="ninja-box">
+                <div class="ninja-title">🎯 MOVEMENT PATTERN (MUST REMEMBER!)</div>
+                <div style="background: white; padding: 15px; border-radius: 8px; color: #2d3436; margin-top: 10px;">
+                    <div style="margin: 8px 0;"><strong>For every movement, remember 3 things:</strong></div>
+                    <div style="margin: 8px 0;">1️⃣ <strong>PARTICIPANTS:</strong> Who joined the movement?</div>
+                    <div style="margin: 8px 0;">2️⃣ <strong>AGENDA:</strong> What were their demands/actions?</div>
+                    <div style="margin: 8px 0;">3️⃣ <strong>LIMITATIONS:</strong> Why did the movement not fully succeed?</div>
+                </div>
+            </div>
+            
+            <div class="flowchart-box" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <h3 style="color: #6c5ce7; margin-bottom: 15px;">📍 NON-COOPERATION MOVEMENT (NCM) 1921-1922</h3>
+                
+                <div class="flow-item">
+                    <div style="background: #11998e; color: white; padding: 10px; border-radius: 5px; margin-bottom: 10px; font-weight: bold;">
+                        👥 PARTICIPANTS
+                    </div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ People from towns (urban middle class)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ Countryside (peasants, farmers)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ Plantation workers (tea, indigo estates)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ Tribal areas (forest communities)</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div style="background: #f093fb; color: white; padding: 10px; border-radius: 5px; margin: 10px 0; font-weight: bold;">
+                        🎯 AGENDA
+                    </div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ Non-cooperation with British government</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ Surrender titles and honours</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ Boycott British goods, courts, schools</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ Promote Khadi (hand-spun cloth)</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div style="background: #fa709a; color: white; padding: 10px; border-radius: 5px; margin: 10px 0; font-weight: bold;">
+                        ❌ LIMITATIONS
+                    </div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✗ Khadi was expensive in cities (poor couldn't afford)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✗ Lack of indigenous institutions (no alternative schools/courts)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✗ Messages misinterpreted in villages (different understanding)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✗ Violence erupted (Chauri Chaura incident) → Gandhi withdrew</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✗ Plantation workers thought "Swaraj" = freedom from work</div>
+                </div>
+            </div>
+            
+            <div class="flowchart-box" style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);">
+                <h3 style="color: #11998e; margin-bottom: 15px;">📍 CIVIL DISOBEDIENCE MOVEMENT (CDM) 1930s</h3>
+                
+                <div class="flow-item">
+                    <div>Started after truce period following NCM</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div style="background: #f093fb; color: white; padding: 10px; border-radius: 5px; margin: 10px 0; font-weight: bold;">
+                        🎯 AGENDA
+                    </div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ Not just non-cooperation → OPEN DISOBEDIENCE</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ Famous: Dandi Salt March (break salt law)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✓ Directly challenge British laws</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div style="background: #fa709a; color: white; padding: 10px; border-radius: 5px; margin: 10px 0; font-weight: bold;">
+                        ❌ LIMITATIONS
+                    </div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✗ Lack of Hindu-Muslim unity (communal tensions)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div>✗ Caste inequalities persisted (Dalits not fully included)</div>
+                </div>
+            </div>
+            
+            <div class="flowchart-box" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                <h3 style="color: #e17055; margin-bottom: 15px;">🎭 SENSE OF COLLECTIVE BELONGING</h3>
+                
+                <div class="flow-item">
+                    <div>Unity created through: Art, music, paintings, reinterpretation of history, poems</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div>(Similar to Romanticism in Europe → Use of emotions/culture for nationalism)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAKING OF GLOBAL WORLD -->
+        <div class="chapter-header" style="margin-top: 40px;">
+            <div class="chapter-title">🌍 C. MAKING OF A GLOBAL WORLD</div>
+            <div style="color: #6c5ce7; margin-top: 5px;">⚠️ ONLY PRE-MODERN WORLD (Topic 1-1.3) in Exam</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title blue-section">📊 CONCEPT FLOWCHART: PRE-MODERN CONNECTIVITY</div>
+            
+            <div class="flowchart-box">
+                <h3 style="color: #d63031; margin-bottom: 15px;">🌐 GLOBAL WORLD = INTERCONNECTED WORLD</h3>
+                
+                <div class="flow-item">
+                    <div class="number">1</div>
+                    <div>World connectivity existed in pre-modern times (but not at current level)</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Evidence: Oceanic routes, cowrie shells found across regions</div>
+                </div>
+            </div>
+            
+            <div class="flowchart-box" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <h3 style="color: #6c5ce7; margin-bottom: 15px;">🛤️ SILK ROUTE: MAIN TRADE CONNECTION</h3>
+                
+                <div class="flow-item">
+                    <div class="number">2</div>
+                    <div>Traders carried: Goods (spices, silk) + Culture + Religious ideas + Food</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Example: Noodles from China → Became spaghetti/pasta in West</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Example: Potatoes from America → Spread to Asia/Europe</div>
+                </div>
+            </div>
+            
+            <div class="flowchart-box" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);">
+                <h3 style="color: #e17055; margin-bottom: 15px;">⚔️ CONQUEST, DISEASE, TRADE</h3>
+                
+                <div class="flow-item">
+                    <div class="number">3</div>
+                    <div>Discovery of ocean routes → New land exploration began</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="number">4</div>
+                    <div>Diseases aided conquerors: Smallpox weakened native populations in America</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div>Spanish conquest of Americas became easier</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="number">5</div>
+                    <div>Trade centers shifted: From China & India → Towards Europe & America</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRINT CULTURE -->
+        <div class="chapter-header" style="margin-top: 40px;">
+            <div class="chapter-title">🖨️ D. PRINT CULTURE AND THE MODERN WORLD</div>
+            <div style="color: #6c5ce7; margin-top: 5px;">Two Aspects: World + India</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title blue-section">🌍 WORLD ASPECT: PRINT REVOLUTION</div>
+            
+            <div class="flowchart-box">
+                <h3 style="color: #d63031; margin-bottom: 15px;">🏭 HOW PRINT REACHED THE WORLD</h3>
+                
+                <div class="flow-item">
+                    <div class="number">1</div>
+                    <div>Origin: China → Japan (via Buddhist missionaries)</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="number">2</div>
+                    <div>To Europe: Marco Polo brought paper & hand-printing from China</div>
+                </div>
+                
+                <div class="flow-item">
+                    <div class="number">3</div>
+                    <div>Gutenberg developed printing press → Hand to mechanical printing</div>
+                </div>
+                
+                <div class="flow-item indent-1">
+                    <div class="arrow">→</div>
+                    <div><strong>PRINT REVOLUTION:</strong> People could read & understand easily</div>
+                </div>
+                
+                <div class="flow-item indent-1">
